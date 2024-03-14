@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        display:flex;
+        justify-content: center;
+    }
+</style>
+<body>
+    <h1>Day 1 Assignment</h1>
+    <h3>Implementation of Map, Filter , Find, FindIndex functions in JS</h3>
+    <div class="lineBreak"></div>
+    <div class="center">Map Implementation 
+        <div id="map"></div>
+    </div>
+    <br>
+    <div class="center">Filter Implementation 
+        <div id="filter"></div>
+    </div>
+    <br>
+    <div class="center">Find Implementation 
+        <div id="find"></div>
+    </div>
+    <br>
+    <div class="center">FindIndex Implementation 
+        <div id="findIndex"></div>
+    </div>
+    <br>
+    <button onclick="buttonClick()" class="center">Click Me</button>
+<script>
+    //Creation of objects for easy access after getElementById
+    let  divObj1 = document.getElementById("map");
+    let  divObj2 = document.getElementById("filter");
+    let  divObj3 = document.getElementById("find");
+    let  divObj4 = document.getElementById("findIndex");
+
+    //creation of 4 functions for implementation of map, filter, find, findIndex
+    function   map_Demo(arr)
+    {          
+        mapped_arr = arr.map(elm => elm + 10)
+        divObj1.innerHTML  +=  mapped_arr + "<br/>";
+    }
+    
+    function   filter_Demo(arr)
+    {
+        filtered_arr = arr.filter(elm => elm % 2  !=  0);          
+        divObj2.innerHTML  +=  filtered_arr + "<br/>";
+    }
+
+    function   find_Demo(arr, target)
+    {
+        foundOrNot = arr.find(elm => elm === target);
+        if(foundOrNot != undefined)
+        {
+            divObj3.innerHTML  +=  `Element ${target} is found in the array` + "<br/>"; 
+            //usage of backtick operator for string formatting.
+        }      
+        else
+        {
+            divObj3.innerHTML  +=  `Couldn't find the element ${target} in the array` + "<br/>";
+        }
+        
+    }
+        
+    function   findById_Demo(arr, target)
+    {
+        foundId = arr.findIndex(elm => elm === target);
+        if(foundOrNot != -1)
+        {
+            let out = `Element ${target} found at index ${foundId}`;
+            divObj4.innerHTML  +=  out + "<br/>";
+        }      
+        else
+        {
+            divObj4.innerHTML  +=  `Couldn't find the element ${target} in the array` + "<br/>";
+        }      
+    }
+
+    //button click function for event
+    function    buttonClick( )
+    {        
+            const myarr = [27,26,25,24,23,22];
+
+            map_Demo(myarr);
+            filter_Demo(myarr);
+            find_Demo(myarr, 24);
+            find_Demo(myarr, 29);
+            findById_Demo(myarr, 23);
+            findById_Demo(myarr, 38);
+    }
+</script>    
+</body>
+</html>
