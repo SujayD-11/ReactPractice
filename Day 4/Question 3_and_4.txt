@@ -1,0 +1,49 @@
+Class Component:
+-----------------------------------
+When creating a React component, the component's name must start with an upper case letter.
+
+The component has to include the extends React.Component statement, this statement creates an inheritance to React.Component, and gives your component access to React.Component's functions.
+
+The component also requires a render() method, this method returns HTML.
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+class Car extends React.Component {
+  render() {
+    return <h2>Hi, I am a Car!</h2>;
+  }
+}
+
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(<Car />);
+
+============================================================================================
+Security Token:
+--------------------------------
+const config = {
+    headers: { Authorization: `Bearer ${token}` }
+};
+
+const bodyParameters = {
+   key: "value"
+};
+
+Axios.post( 
+  'http://localhost:8000/api/v1/get_token_payloads',
+  bodyParameters,
+  config
+).then(console.log).catch(console.log);
+
+OR
+
+const instance = axios.create({
+  baseURL: 'https://example.com/api/',
+  timeout: 1000,
+  headers: {'Authorization': 'Bearer '+token}
+});
+
+instance.get('/path')
+.then(response => {
+    return response.data;
+})
